@@ -1,10 +1,8 @@
-console.log("Hello World!");
-
 const options = ["rock", "paper", "scissors"]
 
 function getComputerChoice(){
     const cpu_choice = options[Math.floor(Math.random() * options.length)]; // makes getComputerChoice pick between 3 options randomly
-    return console.log(cpu_choice);
+    return cpu_choice;
 }
 
 
@@ -37,9 +35,11 @@ function playRound(humanSelection, computerSelection){
         (humanSelection == "paper" && computerSelection == "rock") ||
         (humanSelection == "scissors" && computerSelection == "paper")
     ){
+        humanScore++;
         return `You win! ${humanSelection} beats ${computerSelection}`;
     }
     else { //any other outcome results in the cpu winning.
+        cpuScore++;
         return `You lose! ${computerSelection} beats ${humanSelection}`;
     }
 }
@@ -49,8 +49,8 @@ const computerSelection = getComputerChoice();
 
 console.log(playRound(humanSelection, computerSelection))
 
-console.log(humanScore);
-console.log(cpuScore)
+console.log("Player Score:", humanScore);
+console.log("CPU Score:", cpuScore)
 
 
 getHumanChoice();
