@@ -26,7 +26,7 @@ function getHumanChoice(){
 function playRound(humanSelection, computerSelection){
     //returns tie if the player and cpu pick the same option
     if (humanSelection === computerSelection){ 
-        return "Tie";
+        alert ("It's a Tie! No one wins!");
     }
     //if player's option beats the CPU's then they win
     else if (
@@ -35,11 +35,11 @@ function playRound(humanSelection, computerSelection){
         (humanSelection == "scissors" && computerSelection == "paper")
     ){
         humanScore++;
-        return `You win! ${humanSelection} beats ${computerSelection}`;
+        alert (`You win! ${humanSelection} beats ${computerSelection}`);
     }
     else { //any other outcome results in the cpu winning.
         cpuScore++;
-        return `You lose! ${computerSelection} beats ${humanSelection}`;
+        alert (`You lose! ${computerSelection} beats ${humanSelection}`);
     }
 }
 
@@ -52,19 +52,14 @@ function playGame(){
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     console.log(playRound(humanSelection, computerSelection));
-    if (playRound(humanSelection, computerSelection) == "Player"){
-        
-    } else if (playRound(humanSelection, computerSelection) == "Computer"){
-        
-    }
     console.log("Player Score:", humanScore);
-    console.log("CPU Score:", cpuScore)
+    console.log("CPU Score:", cpuScore);
     }
-    console.log("Game Over")
+    console.log("Game Over");
     if (humanScore > cpuScore){
-        return "You win!"
+        alert ("You win!")
     } else {
-        return "You Lose"
+        alert ("You Lose")
     }
 }
 
@@ -75,4 +70,4 @@ console.log(playRound(humanSelection, computerSelection));
 
 
 
-playGame();
+console.log(playGame());
