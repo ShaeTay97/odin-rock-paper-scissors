@@ -21,8 +21,7 @@ function getHumanChoice(){
     }   
 }
 
-let humanScore = 0;
-let cpuScore = 0;
+
 
 function playRound(humanSelection, computerSelection){
     //returns tie if the player and cpu pick the same option
@@ -44,21 +43,35 @@ function playRound(humanSelection, computerSelection){
     }
 }
 
+    let humanScore = 0;
+    let cpuScore = 0;
+
 function playGame(){
     console.log("Welcome!");
     for (let i = 0; i < 5; i++){
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     console.log(playRound(humanSelection, computerSelection));
+    if (playRound(humanSelection, computerSelection) == "Player"){
+        
+    } else if (playRound(humanSelection, computerSelection) == "Computer"){
+        
     }
     console.log("Player Score:", humanScore);
     console.log("CPU Score:", cpuScore)
+    }
+    console.log("Game Over")
+    if (humanScore > cpuScore){
+        return "You win!"
+    } else {
+        return "You Lose"
+    }
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-console.log(playRound(humanSelection, computerSelection))
+console.log(playRound(humanSelection, computerSelection));
 
 
 
