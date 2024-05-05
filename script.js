@@ -4,8 +4,9 @@ const options = ["rock", "paper", "scissors"]
 
 function getComputerChoice(){
     const cpu_choice = options[Math.floor(Math.random() * options.length)]; // makes getComputerChoice pick between 3 options randomly
-    return cpu_choice;
+    return console.log(cpu_choice);
 }
+
 
 function getHumanChoice(){ 
     let validatedInput = false;
@@ -26,22 +27,27 @@ let humanScore = 0;
 let cpuScore = 0;
 
 function playRound(humanSelection, computerSelection){
-    if (humanSelection === computerSelection){
+    //returns tie if the player and cpu pick the same option
+    if (humanSelection === computerSelection){ 
         return "Tie";
     }
+    //if player's option beats the CPU's then they win
     else if (
         (humanSelection == "rock" && computerSelection == "scissors") ||
         (humanSelection == "paper" && computerSelection == "rock") ||
-        (humanSelection == "scissors" && computerSelection == rock)
+        (humanSelection == "scissors" && computerSelection == "paper")
     ){
-        return "Player wins";
+        return `You win! ${humanSelection} beats ${computerSelection}`;
+    }
+    else { //any other outcome results in the cpu winning.
+        return `You lose! ${computerSelection} beats ${humanSelection}`;
     }
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection)
+console.log(playRound(humanSelection, computerSelection))
 
 console.log(humanScore);
 console.log(cpuScore)
