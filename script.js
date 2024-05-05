@@ -44,6 +44,14 @@ function playRound(humanSelection, computerSelection){
     }
 }
 
+function playGame(){
+    console.log("Welcome!");
+    for (let i = 0; i < 5; i++);
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    console.log(playRound(humanSelection, computerSelection));
+}
+
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
@@ -52,6 +60,4 @@ console.log(playRound(humanSelection, computerSelection))
 console.log("Player Score:", humanScore);
 console.log("CPU Score:", cpuScore)
 
-
-getHumanChoice();
-getComputerChoice()
+playGame();
